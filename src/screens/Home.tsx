@@ -1,48 +1,69 @@
-import React, { useState, useEffect } from 'react';
-import { VStack, Heading, Icon, useTheme } from 'native-base';
-import { Envelope, Key } from 'phosphor-react-native';
+import React from 'react';
+import { VStack, HStack, Image, useTheme } from 'native-base';
+import { ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
 
-import Logo from '../assets/images/logo_primary.svg';
+import background from '../assets/images/background.png';
+import logoHome from '../assets/images/logo-home.png';
+import botaoAoVivo from '../assets/images/botao-ao-vivo.png';
+import iconeSite from '../assets/images/icone-site.png';
+import iconeFacebook from '../assets/images/icone-facebook.png';
+import iconeInstagram from '../assets/images/icone-instagram.png';
+import iconeShare from '../assets/images/icone-share.png';
 
-import { Input } from '../components/Input';
-import { Button } from '../components/Button';
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+  },
+  btnAoVivo: {
+    marginTop: 70,
+  },
+  icon: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+});
 
 export function Home() {
   const { colors } = useTheme();
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
 
   return (
-    <VStack 
-      flex={1} 
-      alignItems="center" 
-      bg="gray.600" 
-      px={8} 
-      pt={24}
-    >
-      <Logo />
-      <Heading 
-        color="gray.100" 
-        fontSize="xl" 
-        fontWeight={500} 
-        mt={20}
-        mb={10}
-      >Acesse sua conta</Heading>
-      <Input 
-        placeholder="E-mail" 
-        mb={4} 
-        onChangeText={setName}
-        InputLeftElement={<Icon as={<Envelope color={colors.gray[300]} />} ml={4} />} 
-      />
-      <Input
-        placeholder="Senha"
-        secureTextEntry
-        mb={4}
-        onChangeText={setPassword}
-        InputLeftElement={<Icon as={<Key color={colors.gray[300]} />} ml={4} />} 
-      />
-
-      <Button title="Entrar" w="full" />
-    </VStack>
+    <ImageBackground source={background} style={styles.background}>
+      <VStack 
+        flex={1} 
+        alignItems="center" 
+        justifyContent="flex-start"
+      >
+        <VStack
+          h="85%"
+          w="full"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Image source={logoHome} alt="logo" />
+          <TouchableOpacity activeOpacity={0.8} style={styles.btnAoVivo}>
+            <Image source={botaoAoVivo} alt="btn-ao-vivo" />
+          </TouchableOpacity>
+        </VStack>
+        <HStack 
+          h="10%" 
+          w="90%"
+          alignItems="center"
+          justifyContent="space-around"
+        >
+          <TouchableOpacity activeOpacity={0.8} style={styles.icon}>
+            <Image source={iconeSite} alt="icone-site" w="12" height="12" />
+          </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.8} style={styles.icon}>
+            <Image source={iconeFacebook} alt="icone-facebook" w="12" height="12" />
+          </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.8} style={styles.icon}>
+            <Image source={iconeInstagram} alt="icone-instagram" w="12" height="12" />
+          </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.8} style={styles.icon}>
+            <Image source={iconeShare} alt="icone-share" w="12" height="12" />
+          </TouchableOpacity>
+        </HStack>
+      </VStack>
+    </ImageBackground>
   );
 }
