@@ -1,6 +1,7 @@
 import React from 'react';
-import { VStack, HStack, Image, useTheme } from 'native-base';
+import { VStack, HStack, Image, useTheme, Heading } from 'native-base';
 import { ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
+import { List } from 'phosphor-react-native';
 
 import background from '../assets/images/background.png';
 import logoHome from '../assets/images/logo-home.png';
@@ -23,9 +24,13 @@ const styles = StyleSheet.create({
   }
 });
 
-export function Home() {
+export function Home({ navigation }: any) {
   const { colors } = useTheme();
 
+  function toggleDrawer(): void {
+    navigation.toggleDrawer();
+  }
+  
   return (
     <ImageBackground source={background} style={styles.background}>
       <VStack 
@@ -39,6 +44,11 @@ export function Home() {
           alignItems="center"
           justifyContent="center"
         >
+          <VStack position="absolute" top="0" left="0" safeArea ml="5" mt="5">
+            <TouchableOpacity activeOpacity={0.8} onPress={toggleDrawer}>
+              <List color={colors.white} />
+            </TouchableOpacity>
+          </VStack>
           <Image source={logoHome} alt="logo" />
           <TouchableOpacity activeOpacity={0.8} style={styles.btnAoVivo}>
             <Image source={botaoAoVivo} alt="btn-ao-vivo" />
