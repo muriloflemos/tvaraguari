@@ -1,6 +1,7 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { House, Monitor, Browser } from 'phosphor-react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faHouse, faTv, faGlobe } from '@fortawesome/free-solid-svg-icons'
 
 import { AppDrawer } from '../components/AppDrawer';
 import { Home } from '../screens/Home';
@@ -18,7 +19,7 @@ export function AppRoutes() {
         drawerActiveBackgroundColor: '#dddddd',
         drawerActiveTintColor: '#000',
         drawerType: 'front',
-        swipeEnabled: false,
+        // swipeEnabled: false,
       }}
     >
       <Screen 
@@ -26,7 +27,7 @@ export function AppRoutes() {
         component={Home}
         options={{
           drawerIcon: ({color}) => (
-            <House size={22} color={color} />
+            <FontAwesomeIcon icon={ faHouse } color={color} size={22} />
           ),
         }}
       />
@@ -35,7 +36,7 @@ export function AppRoutes() {
         component={TV}
         options={{
           drawerIcon: ({color}) => (
-            <Monitor size={22} color={color} />
+            <FontAwesomeIcon icon={ faTv } color={color} size={22} />
           ),
         }}
       />
@@ -44,7 +45,7 @@ export function AppRoutes() {
         component={TV}
         options={{
           drawerIcon: ({color}) => (
-            <Browser size={22} color={color} />
+            <FontAwesomeIcon icon={ faGlobe } color={color} size={22} />
           ),
         }}
       />

@@ -1,7 +1,9 @@
 import React from 'react';
 import { VStack, HStack, Image, useTheme, Heading } from 'native-base';
 import { ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
-import { List } from 'phosphor-react-native';
+// import { List } from 'phosphor-react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 import background from '../assets/images/background.png';
 import logoHome from '../assets/images/logo-home.png';
@@ -46,7 +48,7 @@ export function Home({ navigation }: any) {
         >
           <VStack position="absolute" top="0" left="0" safeArea ml="5" mt="5">
             <TouchableOpacity activeOpacity={0.8} onPress={toggleDrawer}>
-              <List color={colors.white} />
+              <FontAwesomeIcon icon={ faBars } color={colors.white} />
             </TouchableOpacity>
           </VStack>
           <Image source={logoHome} alt="logo" />

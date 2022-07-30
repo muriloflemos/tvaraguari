@@ -5,7 +5,9 @@ import {
 } from '@react-navigation/drawer';
 import { Image, View, AspectRatio, Text } from 'native-base';
 import { DrawerItem } from '@react-navigation/drawer';
-import { WhatsappLogo, FacebookLogo, InstagramLogo, ShieldCheck } from 'phosphor-react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faFacebookSquare, faInstagramSquare, faWhatsappSquare } from '@fortawesome/free-brands-svg-icons'
+import { faFileShield } from '@fortawesome/free-solid-svg-icons'
 
 import logo from '../assets/images/logo-horizontal.png';
 
@@ -36,24 +38,24 @@ export const AppDrawer = (props: any) => {
           <DrawerItem 
             label="Whatsapp" 
             onPress={() => onDrawerItemPress('TV')}
-            icon={({ color }) => <WhatsappLogo size={22} color={color} />}
+            icon={({ color }) => <FontAwesomeIcon icon={ faWhatsappSquare } color={color} size={22} />}            
           />
           <DrawerItem
             label="Facebook"
             onPress={() => onDrawerItemPress('TV')}
-            icon={({ color }) => <FacebookLogo size={22} color={color} />}
+            icon={({ color }) => <FontAwesomeIcon icon={ faFacebookSquare } color={color} size={22} />}
           />
           <DrawerItem
             label="Instagram"
             onPress={() => onDrawerItemPress('TV')}
-            icon={({ color }) => <InstagramLogo size={22} color={color} />}
+            icon={({ color }) => <FontAwesomeIcon icon={ faInstagramSquare } color={color} size={22} />}
           />
           <View style={{ borderTopWidth: 1, borderTopColor: '#ccc', marginBottom: 20}}>
             <Text ml="5" mt="5" fontWeight="bold" fontSize="16" color="gray.300">Outros</Text>
             <DrawerItem
               label="Política de Privacidade"
-              onPress={() => onDrawerItemPress('TV')}
-              icon={({ color }) => <ShieldCheck size={22} color={color} />}
+              onPress={() => onDrawerItemPress('TV')}              
+              icon={({ color }) => <FontAwesomeIcon icon={ faFileShield } color={color} size={22} />}
             />
           </View>
         </View>
