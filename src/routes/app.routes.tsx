@@ -1,13 +1,34 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faHouse, faTv, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faHouse } from '@fortawesome/free-solid-svg-icons'
 
 import { AppDrawer } from '../components/AppDrawer';
 import { Home } from '../screens/Home';
 import { TV } from '../screens/TV';
 
 const { Navigator, Screen } = createDrawerNavigator();
+
+const HomeStack = createNativeStackNavigator();
+const HomeStackScreen = () => {
+  return (
+    <HomeStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <HomeStack.Screen
+        name="Home"
+        component={Home}
+      />
+      <HomeStack.Screen
+        name="TV"
+        component={TV}
+      />
+    </HomeStack.Navigator>
+  );
+}
 
 export function AppRoutes() {
   return (
@@ -23,29 +44,12 @@ export function AppRoutes() {
       }}
     >
       <Screen 
-        name="Home" 
-        component={Home}
+        name="HomeStack" 
+        component={HomeStackScreen}
         options={{
+          drawerLabel: 'Home',
           drawerIcon: ({color}) => (
             <FontAwesomeIcon icon={ faHouse } color={color} size={22} />
-          ),
-        }}
-      />
-      <Screen
-        name="TV"
-        component={TV}
-        options={{
-          drawerIcon: ({color}) => (
-            <FontAwesomeIcon icon={ faTv } color={color} size={22} />
-          ),
-        }}
-      />
-      <Screen
-        name="Nosso Site"
-        component={Home}
-        options={{
-          drawerIcon: ({color}) => (
-            <FontAwesomeIcon icon={ faGlobe } color={color} size={22} />
           ),
         }}
       />
