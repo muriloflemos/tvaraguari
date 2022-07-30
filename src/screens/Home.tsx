@@ -32,6 +32,10 @@ export function Home({ navigation }: any) {
   function toggleDrawer(): void {
     navigation.toggleDrawer();
   }
+
+  function openTV() {
+    navigation.navigate('TV')
+  }
   
   return (
     <ImageBackground source={background} style={styles.background}>
@@ -52,7 +56,7 @@ export function Home({ navigation }: any) {
             </TouchableOpacity>
           </VStack>
           <Image source={logoHome} alt="logo" />
-          <TouchableOpacity activeOpacity={0.8} style={styles.btnAoVivo}>
+          <TouchableOpacity activeOpacity={0.8} style={styles.btnAoVivo} onPress={openTV}>
             <Image source={botaoAoVivo} alt="btn-ao-vivo" />
           </TouchableOpacity>
         </VStack>

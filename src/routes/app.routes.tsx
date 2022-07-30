@@ -19,7 +19,7 @@ export function AppRoutes() {
         drawerActiveBackgroundColor: '#dddddd',
         drawerActiveTintColor: '#000',
         drawerType: 'front',
-        // swipeEnabled: false,
+        swipeEnabled: false,
       }}
     >
       <Screen 
@@ -42,7 +42,7 @@ export function AppRoutes() {
       />
       <Screen
         name="Nosso Site"
-        component={TV}
+        component={Home}
         options={{
           drawerIcon: ({color}) => (
             <FontAwesomeIcon icon={ faGlobe } color={color} size={22} />
