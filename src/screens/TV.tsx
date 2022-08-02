@@ -1,32 +1,63 @@
-import React, { useEffect } from 'react';
-import { VStack } from 'native-base';
-import VideoPlayer from 'react-native-video-controls';
+import React, { useEffect, useState } from 'react';
+import { VStack, HStack, Text, IconButton } from 'native-base';
+import { StyleSheet, SafeAreaView } from 'react-native';
+import { WebView } from 'react-native-webview';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+
+import { TV_URL } from '../config';
+
+const styles = StyleSheet.create({
+  area: {
+    flex: 1,
+    backgroundColor: '#000',
+  },
+  webview: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#000'
+  }
+});
 
 export function TV({ navigation }: any) {
-  const source = {
-    uri: "http://live26.jmvstream.com:1935/AVJ-11391/playlist/playlist.m3u8",
-    type: 'm3u8'
-  };
+  const [title, setTitle] = useState('');
+  const [url, setUrl] = useState('');
+
+  useEffect(() => {
+    setTitle('AO VIVO');
+    setUrl(TV_URL);
+  }, []);
 
   function onClickBack() {
     navigation.goBack();
   }
 
-  return (
-    <VStack flex={1} bg="black">
-      <VideoPlayer
-        source={source}
-        onError={(err: any) => {
-          console.log(err);
-        }}
-        onBack={onClickBack}
-        disableSeekbar={true}
-        disableTimer={true}
-        videoStyle={{
-          width: '100%',
-          height: '100%',
-        }}
+  function renderWebView() {
+    return (
+      <WebView
+        style={styles.webview}
+        originWhitelist={['*']}
+        source={{ uri: url }}
       />
-    </VStack>
+    );
+  }
+
+  return (
+    <SafeAreaView style={styles.area}>
+      <VStack flex={1} bg="black">
+        <HStack bg="black" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%">
+          <HStack alignItems="center">
+            <IconButton 
+              icon={<FontAwesomeIcon size={15} icon={faChevronLeft} color="#ffffff" />}
+              onPress={onClickBack}
+            />
+            <Text color="white" fontSize="15" fontWeight="bold">
+              {title}
+            </Text>
+          </HStack>
+        </HStack>
+        {renderWebView()}
+      </VStack>
+    </SafeAreaView>
   );
 }

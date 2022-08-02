@@ -12,6 +12,8 @@ import iconeFacebook from '../assets/images/icone-facebook.png';
 import iconeInstagram from '../assets/images/icone-instagram.png';
 import iconeShare from '../assets/images/icone-share.png';
 
+import { openWebsite, openFacebook, openInstagram, openWhatsapp } from '../utils';
+
 const styles = StyleSheet.create({
   background: {
     flex: 1,
@@ -34,6 +36,10 @@ export function Home({ navigation }: any) {
 
   function openTV() {
     navigation.navigate('TV')
+  }
+
+  function share() {
+    // TO DO
   }
   
   return (
@@ -65,16 +71,16 @@ export function Home({ navigation }: any) {
           alignItems="center"
           justifyContent="space-around"
         >
-          <TouchableOpacity activeOpacity={0.8} style={styles.icon}>
+          <TouchableOpacity activeOpacity={0.8} style={styles.icon} onPress={openWebsite}>
             <Image source={iconeSite} alt="icone-site" w="12" height="12" />
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.8} style={styles.icon}>
+          <TouchableOpacity activeOpacity={0.8} style={styles.icon} onPress={openFacebook}>
             <Image source={iconeFacebook} alt="icone-facebook" w="12" height="12" />
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.8} style={styles.icon}>
+          <TouchableOpacity activeOpacity={0.8} style={styles.icon} onPress={openInstagram}>
             <Image source={iconeInstagram} alt="icone-instagram" w="12" height="12" />
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.8} style={styles.icon}>
+          <TouchableOpacity activeOpacity={0.8} style={styles.icon} onPress={share}>
             <Image source={iconeShare} alt="icone-share" w="12" height="12" />
           </TouchableOpacity>
         </HStack>

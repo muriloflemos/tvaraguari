@@ -11,6 +11,7 @@ import { faFacebookSquare, faInstagramSquare, faWhatsappSquare } from '@fortawes
 import { faFileShield, faTv, faGlobe } from '@fortawesome/free-solid-svg-icons'
 
 import logo from '../assets/images/logo-horizontal.png';
+import { openWebsite, openFacebook, openInstagram, openWhatsapp } from '../utils';
 
 enum DrawerOption {
   TV = 0,
@@ -28,6 +29,18 @@ export const AppDrawer = (props: any) => {
     switch (opt) {
       case DrawerOption.TV:
         openTV();
+        break;
+      case DrawerOption.SITE:
+        openWebsite();
+        break;
+      case DrawerOption.WHATSAPP:
+        openWhatsapp();
+        break;
+      case DrawerOption.FACEBOOK:
+        openFacebook();
+        break;
+      case DrawerOption.INSTAGRAM:
+        openInstagram();
         break;
     }
   }
@@ -80,14 +93,14 @@ export const AppDrawer = (props: any) => {
             onPress={() => onDrawerItemPress(DrawerOption.INSTAGRAM)}
             icon={({ color }) => <FontAwesomeIcon icon={ faInstagramSquare } color={color} size={22} />}
           />
-          <View style={{ borderTopWidth: 1, borderTopColor: '#ccc', marginBottom: 20}}>
+          {/* <View style={{ borderTopWidth: 1, borderTopColor: '#ccc', marginBottom: 20}}>
             <Text ml="5" mt="5" fontWeight="bold" fontSize="16" color="gray.300">Outros</Text>
             <DrawerItem
               label="Política de Privacidade"
               onPress={() => onDrawerItemPress(DrawerOption.POLITICA)}
               icon={({ color }) => <FontAwesomeIcon icon={ faFileShield } color={color} size={22} />}
             />
-          </View>
+          </View> */}
         </View>
       </DrawerContentScrollView>
     </View>
