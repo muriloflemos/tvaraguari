@@ -1,34 +1,38 @@
 import { Linking } from 'react-native';
 import { FACEBOOK, WEBSITE, INSTAGRAM, WHATSAPP } from './config';
+import { showMessage, MessageOptions } from "react-native-flash-message";
+
+export function openUrl(url: string, errorMessage: string) {
+  const error: MessageOptions = {
+    message: errorMessage,
+    type: "danger",
+  };
+
+  Linking.canOpenURL(url).then(value => {
+    if (value) {
+      Linking.openURL(url).catch(() => showMessage(error));
+    } else {
+      showMessage(error);
+    }
+  }).catch(() => showMessage(error));
+}
 
 export function openWebsite() {
-  Linking.canOpenURL(WEBSITE).then(value => {
-    if (value) Linking.openURL(WEBSITE);
-    else console.log('Não foi possível abrir o Site');
-  });
+  openUrl(WEBSITE, "Não foi possível abrir o site!");
 }
 
 export async function openFacebook() {
   const url = `fb://page/${FACEBOOK}`;
-  Linking.canOpenURL(url).then(value => {
-    if (value) Linking.openURL(url);
-    else console.log('Não foi possível abrir o Facebook');
-  });
+  openUrl(url, "Não foi possível abrir o Facebook!");
 }
 
 export function openInstagram() {
-  const instagramUrl = `instagram://user?username=${INSTAGRAM}`;
-  Linking.canOpenURL(instagramUrl).then(value => {
-    if (value) Linking.openURL(instagramUrl);
-    else console.log('Não foi possível abrir o Instagram');
-  });
+  const url = `instagram://user?username=${INSTAGRAM}`;
+  openUrl(url, "Não foi possível abrir o Instagram!");
 }
 
 export function openWhatsapp() {
-  const instagramUrl = `'whatsapp://send?phone=${WHATSAPP}`;
-  Linking.canOpenURL(instagramUrl).then(value => {
-    if (value) Linking.openURL(instagramUrl);
-    else console.log('Não foi possível abrir o Instagram');
-  });
+  const url = `'whatsapp://send?phone=${WHATSAPP}`;
+  openUrl(url, "Não foi possível abrir o Whatsapp!");
 }
 
