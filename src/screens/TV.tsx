@@ -13,10 +13,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
   },
   webview: {
-    width: '100%',
-    height: '100%',
     backgroundColor: '#000'
-  }
+  },
+  webviewContainer: {
+    backgroundColor: '#000',
+  },
 });
 
 export function TV({ navigation }: any) {
