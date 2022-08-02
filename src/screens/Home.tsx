@@ -3,6 +3,8 @@ import { VStack, HStack, Image, useTheme, Heading } from 'native-base';
 import { ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import Share from 'react-native-share';
+// import { showMessage } from "react-native-flash-message";
 
 import background from '../assets/images/background.png';
 import logoHome from '../assets/images/logo-home.png';
@@ -38,8 +40,20 @@ export function Home({ navigation }: any) {
     navigation.navigate('TV')
   }
 
-  function share() {
-    // TO DO
+  async function share() {
+    const shareOptions = {
+      title: 'Compartilhar',
+      message: 'TV Araguari',
+    };
+    try {
+      await Share.open(shareOptions);
+    } catch (error) {
+      console.log(error);
+      // showMessage({
+      //   message: "Desculpe, não foi possível compartilhar!",
+      //   type: "danger",
+      // });
+    }
   }
   
   return (
