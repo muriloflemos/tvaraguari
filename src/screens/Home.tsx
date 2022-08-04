@@ -1,10 +1,9 @@
 import React from 'react';
 import { VStack, HStack, Image, useTheme, Heading } from 'native-base';
-import { ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
+import { ImageBackground, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import Share from 'react-native-share';
-// import { showMessage } from "react-native-flash-message";
 
 import background from '../assets/images/background.png';
 import logoHome from '../assets/images/logo-home.png';
@@ -14,7 +13,8 @@ import iconeFacebook from '../assets/images/icone-facebook.png';
 import iconeInstagram from '../assets/images/icone-instagram.png';
 import iconeShare from '../assets/images/icone-share.png';
 
-import { openWebsite, openFacebook, openInstagram, openWhatsapp } from '../utils';
+import { openWebsite, openFacebook, openInstagram } from '../utils';
+import { APPLE_URL, GOOGLE_URL } from '../config';
 
 const styles = StyleSheet.create({
   background: {
@@ -41,18 +41,16 @@ export function Home({ navigation }: any) {
   }
 
   async function share() {
+    const url = Platform.OS == 'ios' ? APPLE_URL : GOOGLE_URL;
+    const message = `Baixe o app da TV Araguari ${url}`;
     const shareOptions = {
       title: 'Compartilhar',
-      message: 'TV Araguari',
+      message: message,
     };
     try {
       await Share.open(shareOptions);
     } catch (error) {
       console.log(error);
-      // showMessage({
-      //   message: "Desculpe, não foi possível compartilhar!",
-      //   type: "danger",
-      // });
     }
   }
   

@@ -7,14 +7,16 @@ export function openUrl(url: string, errorMessage: string) {
     message: errorMessage,
     type: "danger",
   };
-
+  console.log(url);
   Linking.canOpenURL(url).then(value => {
     if (value) {
       Linking.openURL(url).catch(() => showMessage(error));
     } else {
       showMessage(error);
     }
-  }).catch(() => showMessage(error));
+  }).catch(() => {
+    showMessage(error);
+  });
 }
 
 export function openWebsite() {
@@ -22,7 +24,7 @@ export function openWebsite() {
 }
 
 export async function openFacebook() {
-  const url = `fb://page/${FACEBOOK}`;
+  const url = `fb://profile?id=${FACEBOOK}`;
   openUrl(url, "Não foi possível abrir o Facebook!");
 }
 
@@ -32,7 +34,7 @@ export function openInstagram() {
 }
 
 export function openWhatsapp() {
-  const url = `'whatsapp://send?phone=${WHATSAPP}`;
+  const url = `whatsapp://send?phone=${WHATSAPP}`;
   openUrl(url, "Não foi possível abrir o Whatsapp!");
 }
 
