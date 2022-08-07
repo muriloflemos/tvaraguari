@@ -46,16 +46,18 @@ export function TV({ navigation }: any) {
   return (
     <SafeAreaView style={styles.area}>
       <VStack flex={1} bg="black">
-        <HStack bg="black" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%">
-          <HStack alignItems="center">
-            <IconButton 
-              icon={<FontAwesomeIcon size={15} icon={faChevronLeft} color="#ffffff" />}
-              onPress={onClickBack}
-            />
-            <Text color="white" fontSize="15" fontWeight="bold">
-              {title}
-            </Text>
-          </HStack>
+        <HStack
+          bg="black" 
+          px="1" 
+          py="3" 
+          justifyContent="space-between" 
+          alignItems="center" 
+          w="100%"
+        >
+          <IconButton 
+            icon={<FontAwesomeIcon size={22} icon={faChevronLeft} color="#ffffff" />}
+            onPress={onClickBack}
+          />
         </HStack>
         {renderWebView()}
       </VStack>
