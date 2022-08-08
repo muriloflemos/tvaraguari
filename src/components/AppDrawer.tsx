@@ -8,7 +8,7 @@ import { DrawerItem } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faWhatsappSquare } from '@fortawesome/free-brands-svg-icons'
-import { faFileShield, faTv, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faFileShield, faTv, faGlobe, faCirclePlay } from '@fortawesome/free-solid-svg-icons'
 
 import logo from '../assets/images/logo-horizontal.png';
 import { openWebsite, openFacebook, openInstagram, openWhatsapp } from '../utils';
@@ -19,7 +19,8 @@ enum DrawerOption {
   WHATSAPP = 2,
   FACEBOOK = 3,
   INSTAGRAM = 4,
-  POLITICA = 5
+  POLITICA = 5,
+  ON_DEMAND = 6,
 }
 
 export const AppDrawer = (props: any) => {
@@ -29,6 +30,9 @@ export const AppDrawer = (props: any) => {
     switch (opt) {
       case DrawerOption.TV:
         openTV();
+        break;
+      case DrawerOption.ON_DEMAND:
+        openOnDemand();
         break;
       case DrawerOption.SITE:
         openWebsite();
@@ -47,6 +51,10 @@ export const AppDrawer = (props: any) => {
 
   function openTV() {
     navigation.navigate('TV');
+  }
+
+  function openOnDemand() {
+    navigation.navigate('OnDemand');
   }
 
   return (
@@ -72,6 +80,11 @@ export const AppDrawer = (props: any) => {
             label="TV" 
             onPress={() => onDrawerItemPress(DrawerOption.TV)}
             icon={({ color }) => <FontAwesomeIcon icon={ faTv } color={color} size={22} />}            
+          />
+          <DrawerItem 
+            label="Programas"
+            onPress={() => onDrawerItemPress(DrawerOption.ON_DEMAND)}
+            icon={({ color }) => <FontAwesomeIcon icon={ faCirclePlay } color={color} size={22} />}            
           />
           <DrawerItem 
             label="Site"

@@ -5,16 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import Share from 'react-native-share';
 
-import background from '../assets/images/background.png';
-import logoHome from '../assets/images/logo-home.png';
-import botaoAoVivo from '../assets/images/botao-ao-vivo.png';
-import iconeSite from '../assets/images/icone-site.png';
-import iconeFacebook from '../assets/images/icone-facebook.png';
-import iconeInstagram from '../assets/images/icone-instagram.png';
-import iconeShare from '../assets/images/icone-share.png';
+import background from '../../assets/images/background.png';
+import logoHome from '../../assets/images/logo-home.png';
+import botaoAoVivo from '../../assets/images/botao-ao-vivo.png';
+import iconeSite from '../../assets/images/icone-site.png';
+import iconeFacebook from '../../assets/images/icone-facebook.png';
+import iconeInstagram from '../../assets/images/icone-instagram.png';
+import iconeShare from '../../assets/images/icone-share.png';
 
-import { openWebsite, openFacebook, openInstagram } from '../utils';
-import { APPLE_URL, GOOGLE_URL } from '../config';
+import { openWebsite, openFacebook, openInstagram } from '../../utils';
+import { APPLE_URL, GOOGLE_URL } from '../../config';
 
 const styles = StyleSheet.create({
   background: {

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { VStack, HStack, Text, IconButton } from 'native-base';
+import { VStack, HStack, IconButton } from 'native-base';
 import { StyleSheet, SafeAreaView } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
-import { TV_URL } from '../config';
+import { TV_URL } from '../../config';
 
 const styles = StyleSheet.create({
   area: {
@@ -21,11 +21,9 @@ const styles = StyleSheet.create({
 });
 
 export function TV({ navigation }: any) {
-  const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
 
   useEffect(() => {
-    setTitle('AO VIVO');
     setUrl(TV_URL);
   }, []);
 
@@ -34,6 +32,7 @@ export function TV({ navigation }: any) {
   }
 
   function renderWebView() {
+    if (!url) return;
     return (
       <WebView
         style={styles.webview}

@@ -7,6 +7,7 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { AppDrawer } from '../components/AppDrawer';
 import { Home } from '../screens/Home';
 import { TV } from '../screens/TV';
+import { OnDemand } from '../screens/OnDemand';
 
 const { Navigator, Screen } = createDrawerNavigator();
 
@@ -25,6 +26,10 @@ const HomeStackScreen = () => {
       <HomeStack.Screen
         name="TV"
         component={TV}
+      />
+      <HomeStack.Screen
+        name="OnDemand"
+        component={OnDemand}
       />
     </HomeStack.Navigator>
   );
