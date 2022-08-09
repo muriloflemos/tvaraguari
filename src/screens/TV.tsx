@@ -39,6 +39,7 @@ export function TV({ navigation }: any) {
         style={styles.webview}
         originWhitelist={['*']}
         source={{ uri: url }}
+        allowsFullscreenVideo
       />
     );
   }
