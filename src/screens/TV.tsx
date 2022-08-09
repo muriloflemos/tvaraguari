@@ -47,12 +47,14 @@ export function TV({ navigation }: any) {
     <SafeAreaView style={styles.area}>
       <VStack flex={1} bg="black">
         <HStack
-          bg="black" 
+          safeArea
+          bg="black"
           px="1" 
           py="3" 
           justifyContent="space-between" 
           alignItems="center" 
           w="100%"
+          h="20"
         >
           <IconButton 
             icon={<FontAwesomeIcon size={22} icon={faChevronLeft} color="#ffffff" />}

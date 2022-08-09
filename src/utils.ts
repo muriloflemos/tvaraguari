@@ -1,21 +1,28 @@
-import { Linking } from 'react-native';
+import { Linking, Alert } from 'react-native';
 import { FACEBOOK, WEBSITE, INSTAGRAM, WHATSAPP } from './config';
-import { showMessage, MessageOptions } from "react-native-flash-message";
+
+export function showMessage(title: string, msg: string, callback = () => {}) {
+  Alert.alert(
+    title,
+    msg,
+    [
+      { text: "OK", onPress: () => callback() }
+    ]
+  );
+}
 
 export function openUrl(url: string, errorMessage: string) {
-  const error: MessageOptions = {
-    message: errorMessage,
-    type: "danger",
-  };
   console.log(url);
   Linking.canOpenURL(url).then(value => {
+    console.log(value);
     if (value) {
-      Linking.openURL(url).catch(() => showMessage(error));
+      Linking.openURL(url).catch(() => showMessage("", errorMessage));
     } else {
-      showMessage(error);
+      showMessage("", errorMessage);
     }
-  }).catch(() => {
-    showMessage(error);
+  }).catch((err) => {
+    console.log(err);
+    showMessage("", errorMessage);
   });
 }
 
