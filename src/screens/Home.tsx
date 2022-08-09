@@ -41,8 +41,8 @@ export function Home({ navigation }: any) {
   }
 
   async function share() {
-    const url = Platform.OS == 'ios' ? APPLE_URL : GOOGLE_URL;
-    const message = `Baixe o app da TV Araguari ${url}`;
+    const url = "https://linktr.ee/tvaraguari";
+    const message = `Conheça a TV Araguari, acesse ${url}`;
     const shareOptions = {
       title: 'Compartilhar',
       message: message,
