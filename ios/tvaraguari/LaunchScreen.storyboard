@@ -16,26 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="OqR-AZ-CJZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="TIc-tN-aUg">
-                                <rect key="frame" x="84" y="249" width="207" height="169"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BootSplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="TIc-tN-aUg">
+                                <rect key="frame" x="111.5" y="271.5" width="152" height="124"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="169" id="6HA-RF-ACj"/>
-                                    <constraint firstAttribute="width" constant="207" id="coW-jd-6Wv"/>
+                                    <constraint firstAttribute="width" constant="152" id="iUd-jI-Ape"/>
+                                    <constraint firstAttribute="height" constant="124" id="kBE-fG-flz"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="OqR-AZ-CJZ" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="AAA-R0-qE1"/>
-                            <constraint firstItem="TIc-tN-aUg" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="XaH-OV-QVB"/>
-                            <constraint firstItem="OqR-AZ-CJZ" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="iiv-sb-9zj"/>
-                            <constraint firstItem="TIc-tN-aUg" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="jsb-JB-ZX5"/>
-                            <constraint firstItem="OqR-AZ-CJZ" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="wNT-tz-8ys"/>
-                            <constraint firstItem="OqR-AZ-CJZ" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="xDH-z9-ou9"/>
+                            <constraint firstItem="TIc-tN-aUg" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="IoP-hJ-9pC"/>
+                            <constraint firstItem="TIc-tN-aUg" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="f2J-Py-DGH"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -45,7 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="250" height="202"/>
-        <image name="background" width="1042" height="1920"/>
+        <image name="BootSplashLogo" width="100" height="100"/>
     </resources>
 </document>
