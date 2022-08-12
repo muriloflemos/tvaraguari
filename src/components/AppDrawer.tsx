@@ -12,6 +12,7 @@ import { faFileShield, faTv, faGlobe, faCirclePlay } from '@fortawesome/free-sol
 
 import logo from '../assets/images/logo-horizontal.png';
 import { openWebsite, openFacebook, openInstagram, openWhatsapp } from '../utils';
+import { TV_URL } from '../config';
 
 enum DrawerOption {
   TV = 0,
@@ -50,7 +51,7 @@ export const AppDrawer = (props: any) => {
   }
 
   function openTV() {
-    navigation.navigate('TV');
+    navigation.navigate('TV', { url: TV_URL });
   }
 
   function openOnDemand() {

@@ -6,3 +6,7 @@ export const WHATSAPP = '553431990001';
 
 export const APPLE_URL = 'https://apps.apple.com/us/app/tv-araguari/id1637867386';
 export const GOOGLE_URL = 'http://play.google.com/store/apps/details?id=br.tv.tvaraguari';
+
+export const JMV_URL = 'https://ondemand-api.jmvtechnology.com/';
+export const JMV_KEY = '11umov0';
+export const JMV_AUTHORIZATION = '24c5d811863edaa273e72afeef1e18f7';

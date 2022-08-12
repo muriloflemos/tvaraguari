@@ -5,8 +5,6 @@ import { WebView } from 'react-native-webview';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
-import { TV_URL } from '../../config';
-
 const styles = StyleSheet.create({
   webview: {
     backgroundColor: '#000'
@@ -16,12 +14,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export function TV({ navigation }: any) {
-  const [url, setUrl] = useState('');
-
-  useEffect(() => {
-    setUrl(TV_URL);
-  }, []);
+export function TV({ route, navigation }: any) {
+  const { url } = route.params;
 
   function onClickBack() {
     navigation.goBack();
