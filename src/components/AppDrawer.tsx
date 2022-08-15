@@ -83,7 +83,7 @@ export const AppDrawer = (props: any) => {
             icon={({ color }) => <FontAwesomeIcon icon={ faTv } color={color} size={22} />}            
           />
           <DrawerItem 
-            label="Programas"
+            label="Gravados"
             onPress={() => onDrawerItemPress(DrawerOption.ON_DEMAND)}
             icon={({ color }) => <FontAwesomeIcon icon={ faCirclePlay } color={color} size={22} />}            
           />

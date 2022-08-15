@@ -1,13 +1,13 @@
 import React from 'react';
-import { VStack, HStack, Image, useTheme, Heading } from 'native-base';
-import { ImageBackground, StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import { VStack, HStack, Image, useTheme } from 'native-base';
+import { ImageBackground, StyleSheet, TouchableOpacity, Share } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import Share from 'react-native-share';
 
 import background from '../assets/images/background.png';
 import logoHome from '../assets/images/logo-home.png';
 import botaoAoVivo from '../assets/images/botao-ao-vivo.png';
+import botaoGravados from '../assets/images/botao-gravados.png';
 import iconeSite from '../assets/images/icone-site.png';
 import iconeFacebook from '../assets/images/icone-facebook.png';
 import iconeInstagram from '../assets/images/icone-instagram.png';
@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
   },
   btnAoVivo: {
     marginTop: 70,
+  },
+  btnGravados: {
+    marginTop: 10,
   },
   icon: {
     alignItems: 'center',
@@ -40,15 +43,17 @@ export function Home({ navigation }: any) {
     navigation.navigate('TV', { url: TV_URL })
   }
 
+  function openGravados() {
+    navigation.navigate('OnDemand');
+  }
+
   async function share() {
     const url = "https://linktr.ee/tvaraguari";
     const message = `Conheça a TV Araguari, acesse ${url}`;
-    const shareOptions = {
-      title: 'Compartilhar',
-      message: message,
-    };
     try {
-      await Share.open(shareOptions);
+      await Share.share({
+        message,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -75,6 +80,9 @@ export function Home({ navigation }: any) {
           <Image source={logoHome} alt="logo" />
           <TouchableOpacity activeOpacity={0.8} style={styles.btnAoVivo} onPress={openTV}>
             <Image source={botaoAoVivo} alt="btn-ao-vivo" />
+          </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.8} style={styles.btnGravados} onPress={openGravados}>
+            <Image source={botaoGravados} alt="btn-gravados" />
           </TouchableOpacity>
         </VStack>
         <HStack 
