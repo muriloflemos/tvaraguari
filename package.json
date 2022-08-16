@@ -11,7 +11,8 @@
     "pod:install": "cd ios && arch -x86_64 pod install",
     "android:generate": "cd android && ./gradlew assembleRelease",
     "android:copy": "cp android/app/build/outputs/apk/release/app-release.apk ~/Downloads/tv-araguari.apk",
-    "android:release": "cd android && ./gradlew bundleRelease"
+    "android:release": "cd android && ./gradlew bundleRelease",
+    "android:release:download": "cp android/app/build/outputs/bundle/release/app-release.aab ~/Downloads/tv-araguari.aab"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
