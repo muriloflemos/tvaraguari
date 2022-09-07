@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { VStack, HStack, IconButton } from 'native-base';
-import { StyleSheet, SafeAreaView } from 'react-native';
 import { WebView } from 'react-native-webview';
+import { NativeModules } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
-const styles = StyleSheet.create({
-  webview: {
-    backgroundColor: '#000'
-  },
-  webviewContainer: {
-    backgroundColor: '#000',
-  },
-});
+const { PictureInPicture } = NativeModules;
+type Message = { nativeEvent: { data: string; }; };
+const onMessage = (event: Message) => {
+  if (event.nativeEvent.data === 'enter-pip-mode') {
+    PictureInPicture.start();
+  }
+};
 
 export function TV({ route, navigation }: any) {
   const { url } = route.params;
@@ -25,10 +24,14 @@ export function TV({ route, navigation }: any) {
     if (!url) return;
     return (
       <WebView
-        style={styles.webview}
-        originWhitelist={['*']}
-        source={{ uri: url }}
         allowsFullscreenVideo
+        allowsInlineMediaPlayback
+        mixedContentMode="compatibility"
+        contentMode="mobile"
+        originWhitelist={['*']}
+        javaScriptEnabled
+        onMessage={onMessage}
+        source={{ uri: url }}
       />
     );
   }

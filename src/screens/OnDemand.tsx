@@ -75,7 +75,7 @@ export const OnDemand = ({ navigation }: any) => {
   }
 
   function renderThumbnail(videos: JMVVideo[]) {
-    if (videos.length == 0) return renderPlaceholder();
+    if (!videos || videos.length == 0) return renderPlaceholder();
     const video = videos[0];
     let thumbnail;
 
@@ -102,9 +102,7 @@ export const OnDemand = ({ navigation }: any) => {
 
   function renderPlaceholder() {
     return (
-      <Center flex="1">
-        <FontAwesomeIcon size={35} icon={faPlayCircle} color="#ffffff" />
-      </Center>
+      <FontAwesomeIcon size={35} icon={faPlayCircle} color="#ffffff" />
     );
   }
 
@@ -139,7 +137,11 @@ export const OnDemand = ({ navigation }: any) => {
                   md: 4 / 3
                 }}>
                   <Box w="full" bg="black" mb="2" borderRadius="10" overflow="hidden">
-                    <TouchableOpacity activeOpacity={0.8} onPress={() => handleGalleryClick(gallery)}>
+                    <TouchableOpacity
+                      style={{ alignItems: 'center', justifyContent: 'center', height: 90 }}
+                      activeOpacity={0.8} 
+                      onPress={() => handleGalleryClick(gallery)}
+                    >
                       {renderThumbnail(gallery.videos)}
                     </TouchableOpacity>
                   </Box>

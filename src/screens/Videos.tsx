@@ -71,7 +71,7 @@ export function Videos({ route, navigation }: any) {
           px="5"
           justifyContent="space-between"
         >
-          {gallery.videos.map((video: JMVVideo) => {
+          {gallery.videos && gallery.videos.map((video: JMVVideo) => {
             return (
               <Box 
                 key={video.hash}
