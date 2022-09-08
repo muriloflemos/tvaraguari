@@ -23,18 +23,30 @@ const HomeStackScreen = () => {
       <HomeStack.Screen
         name="Home"
         component={Home}
+        options={{
+          orientation: 'portrait',
+        }}
       />
       <HomeStack.Screen
         name="TV"
         component={TV}
+        options={{
+          orientation: 'landscape',
+        }}
       />
       <HomeStack.Screen
         name="OnDemand"
         component={OnDemand}
+        options={{
+          orientation: 'portrait',
+        }}
       />
       <HomeStack.Screen
         name="Videos"
         component={Videos}
+        options={{
+          orientation: 'portrait',
+        }}
       />
     </HomeStack.Navigator>
   );
