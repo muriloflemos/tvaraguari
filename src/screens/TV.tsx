@@ -1,18 +1,10 @@
 import React from 'react';
 import { VStack, HStack, IconButton } from 'native-base';
 import { WebView } from 'react-native-webview';
-import { NativeModules } from 'react-native';
+import { StatusBar } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { useKeepAwake } from '@sayem314/react-native-keep-awake';
-
-const { PictureInPicture } = NativeModules;
-type Message = { nativeEvent: { data: string; }; };
-const onMessage = (event: Message) => {
-  if (event.nativeEvent.data === 'enter-pip-mode') {
-    PictureInPicture.start();
-  }
-};
 
 export function TV({ route, navigation }: any) {
   useKeepAwake();
@@ -34,7 +26,8 @@ export function TV({ route, navigation }: any) {
         contentMode="mobile"
         originWhitelist={['*']}
         javaScriptEnabled
-        onMessage={onMessage}
+        cacheEnabled={false}
+        cacheMode='LOAD_NO_CACHE'
         source={{ uri: url }}
       />
     );
@@ -42,6 +35,12 @@ export function TV({ route, navigation }: any) {
 
   return (
     <VStack safeArea flex={1} bg="black">
+      <StatusBar
+        barStyle="dark-content"
+        hidden={true}
+        backgroundColor="transparent"
+        translucent
+      />
       <HStack
         bg="black"
         justifyContent="flex-start" 

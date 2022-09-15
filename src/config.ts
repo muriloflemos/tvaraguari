@@ -1,4 +1,6 @@
-export const TV_URL = 'https://player.jmvstream.com/avj/QvCckX10dSZFlQCVTjVEK8sviIacau';
+// export const TV_URL = 'https://player.jmvstream.com/avj/QvCckX10dSZFlQCVTjVEK8sviIacau';
+// export const TV_URL = 'https://playerv.samcast.com.br/video/wilson7475/1/true/false/V1hwT1UyUkhVbkZaTTFacVRXdGFNRmRVU2tkbGJWSkVUbGR3YVUxcVFqRlhWelZLVUZFOVBRPT0rUg==/16:9//nao/nao';
+export const TV_URL = 'https://aovivo.araguaritv.tv.br/';
 export const WEBSITE = 'http://www.tvaraguari.tv.br/';
 export const INSTAGRAM = 'tvaraguari';
 export const FACEBOOK = 'tvaraguarioficial';
