@@ -4,7 +4,7 @@ import { Center, Spinner } from 'native-base';
 const Loading = () => {
   return (
     <Center flex={1} width="100%">
-      <Spinner size="lg" />
+      <Spinner size="lg" color={'#FFFFFF'} />
     </Center>
   );
 };

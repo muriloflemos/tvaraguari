@@ -10,6 +10,8 @@ import { TV } from '../screens/TV';
 import { OnDemand } from '../screens/OnDemand';
 import { Videos } from '../screens/Videos';
 
+import { LogoHeader } from '../components/LogoHeader';
+
 const { Navigator, Screen } = createDrawerNavigator();
 
 const HomeStack = createNativeStackNavigator();
@@ -25,13 +27,19 @@ const HomeStackScreen = () => {
         component={Home}
         options={{
           orientation: 'portrait',
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: '#1B1B1B',
+          },
+          headerTitle: () => <LogoHeader />,
         }}
       />
       <HomeStack.Screen
         name="TV"
         component={TV}
         options={{
-          orientation: 'landscape',
+          // orientation: 'landscape',
+          orientation: 'portrait',
         }}
       />
       <HomeStack.Screen

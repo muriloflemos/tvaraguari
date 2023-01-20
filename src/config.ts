@@ -12,3 +12,5 @@ export const GOOGLE_URL = 'http://play.google.com/store/apps/details?id=br.tv.tv
 export const JMV_URL = 'https://ondemand-api.jmvtechnology.com/';
 export const JMV_KEY = '11umov0';
 export const JMV_AUTHORIZATION = '24c5d811863edaa273e72afeef1e18f7';
+
+export const API_URL = 'https://d6pl75zdzt4riqqzqpisp3yzuy0elkvu.lambda-url.sa-east-1.on.aws';
