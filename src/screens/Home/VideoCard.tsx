@@ -13,7 +13,7 @@ export function VideoCard({ video }: Props) {
     <ImageBackground 
       source={{ uri: video?.thumbnail, cache: 'force-cache' }}
       resizeMode="cover"
-      imageStyle={{ borderRadius: 8 }}
+      imageStyle={{ borderRadius: 3 }}
       style={{
         width: 160,
         height: 100,
@@ -23,8 +23,8 @@ export function VideoCard({ video }: Props) {
     >
       <VStack 
         flex={1} 
-        backgroundColor={'rgba(0, 0, 0, 0.4)'}
-        borderRadius={8}
+        // backgroundColor={'rgba(0, 0, 0, 0.4)'}
+        borderRadius={3}
         height={100}
         alignItems={'flex-start'}
         justifyContent={'flex-end'}

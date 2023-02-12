@@ -1,6 +1,6 @@
 import React from 'react';
 import { VStack, Text } from 'native-base';
-import { ImageBackground } from 'react-native';
+import { ImageBackground, TouchableOpacity, StyleSheet } from 'react-native';
 
 import { Programa } from '../../services/APIService';
 
@@ -13,10 +13,10 @@ export function CardAoVivo({ programa }: Props) {
     <ImageBackground 
       source={{ uri: programa?.thumbnail, cache: 'force-cache' }}
       resizeMode="cover"
-      imageStyle={{ borderRadius: 8 }}
+      imageStyle={{ borderRadius: 3 }}
       style={{
         height: 250,
-        margin: 25,
+        // margin: 25,
       }}
     >
       <VStack 
@@ -24,7 +24,7 @@ export function CardAoVivo({ programa }: Props) {
         backgroundColor={'rgba(0, 0, 0, 0.4)'}
         paddingX={3}
         paddingY={1}
-        borderRadius={8}
+        borderRadius={3}
         height={250}
         alignItems={'flex-start'}
         justifyContent={'flex-end'}

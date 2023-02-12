@@ -1,4 +1,4 @@
-const thumbnailDefault = null;
+const thumbnailDefault = 'https://s3.sa-east-1.amazonaws.com/tvaraguari.tv.br/public/capas/tv-araguari.png';
 
 export const programacao = [
   {
@@ -73,18 +73,11 @@ export const programacao = [
         startTime: '20:00',
         endTime: '21:00',
         thumbnail: 'https://s3.sa-east-1.amazonaws.com/tvaraguari.tv.br/public/capas/prosa-boa.jpg',
-      },
-      {
-        id: 7,
-        name: 'Teste',
-        startTime: '22:30',
-        endTime: '23:30',
-        thumbnail: 'https://s3.sa-east-1.amazonaws.com/tvaraguari.tv.br/public/capas/prosa-boa.jpg',
       }
     ]
   },
   {
-    weekday: 3,
+    weekday: 2,
     name: 'Terça',
     items: [
       {
@@ -132,7 +125,7 @@ export const programacao = [
     ]
   },
   {
-    weekday: 4,
+    weekday: 3,
     name: 'Quarta',
     items: [
       {
@@ -180,7 +173,7 @@ export const programacao = [
     ]
   },
   {
-    weekday: 5,
+    weekday: 4,
     name: 'Quinta',
     items: [
       {
@@ -231,11 +224,18 @@ export const programacao = [
         startTime: '21:00',
         endTime: '22:00',
         thumbnail: 'https://s3.sa-east-1.amazonaws.com/tvaraguari.tv.br/public/capas/garage-turbo.jpg',
+      },
+      {
+        id: 7,
+        name: 'Teste',
+        startTime: '00:00',
+        endTime: '06:59',
+        thumbnail: 'https://www.youtube.com/watch?v=fPRENmAk2lM',
       }
     ]
   },
   {
-    weekday: 6,
+    weekday: 5,
     name: 'Sexta',
     items: [
       {
@@ -283,7 +283,7 @@ export const programacao = [
     ]
   },
   {
-    weekday: 7,
+    weekday: 6,
     name: 'Sábado',
     items: [
       {

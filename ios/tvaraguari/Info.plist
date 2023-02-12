@@ -24,6 +24,7 @@
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>vnd.youtube</string>
 		<string>whatsapp</string>
 		<string>instagram</string>
 		<string>fb</string>

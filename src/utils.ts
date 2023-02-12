@@ -1,5 +1,5 @@
 import { Linking, Alert } from 'react-native';
-import { FACEBOOK, WEBSITE, INSTAGRAM, WHATSAPP } from './config';
+import { FACEBOOK, WEBSITE, INSTAGRAM, WHATSAPP, YOUTUBE } from './config';
 
 export function showMessage(title: string, msg: string, callback = () => {}) {
   Alert.alert(
@@ -43,5 +43,10 @@ export function openInstagram() {
 export function openWhatsapp() {
   const url = `whatsapp://send?phone=${WHATSAPP}`;
   openUrl(url, "Não foi possível abrir o Whatsapp!");
+}
+
+export function openYoutube() {
+  const url = `vnd.youtube://channel/${YOUTUBE}`;
+  openUrl(url, "Não foi possível abrir o Youtube!");
 }
 

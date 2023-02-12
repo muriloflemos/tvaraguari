@@ -1,18 +1,37 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faHouse } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faGlobe } from '@fortawesome/free-solid-svg-icons'
 
 import { AppDrawer } from '../components/AppDrawer';
+import { AppTabBar } from '../components/AppTabBar';
 import { Home } from '../screens/Home';
 import { TV } from '../screens/TV';
 import { OnDemand } from '../screens/OnDemand';
 import { Videos } from '../screens/Videos';
 
+import { PRIMARY_COLOR } from '../config';
 import { LogoHeader } from '../components/LogoHeader';
 
 const { Navigator, Screen } = createDrawerNavigator();
+
+const Tab = createBottomTabNavigator();
+function Main() {
+  return (
+    <Tab.Navigator tabBar={() => <AppTabBar />}>
+      <Tab.Screen
+        name="Main"
+        component={Home}
+        options={{
+          title: 'Home',
+          headerShown: false,
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
 
 const HomeStack = createNativeStackNavigator();
 const HomeStackScreen = () => {
@@ -24,13 +43,14 @@ const HomeStackScreen = () => {
     >
       <HomeStack.Screen
         name="Home"
-        component={Home}
-        options={{
+        component={Main}
+        options={{ 
           orientation: 'portrait',
           headerShown: true,
           headerStyle: {
-            backgroundColor: '#1B1B1B',
+            backgroundColor: PRIMARY_COLOR,
           },
+          headerTitleAlign: 'center',
           headerTitle: () => <LogoHeader />,
         }}
       />
@@ -38,8 +58,7 @@ const HomeStackScreen = () => {
         name="TV"
         component={TV}
         options={{
-          // orientation: 'landscape',
-          orientation: 'portrait',
+          orientation: 'landscape',
         }}
       />
       <HomeStack.Screen

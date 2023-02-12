@@ -66,35 +66,38 @@ const prepareData = (data) => {
 
   for (const item of data) {
     const videos = prepareVideos(item?.videos);
-    results.push({
-      id: item?.id,
-      name: item?.name,
-      total_videos: item?.total_videos,
-      videos: videos,
-    });
+    if (videos.length > 0) {
+      results.push({
+        id: item?.id,
+        name: item?.name,
+        total_videos: item?.total_videos,
+        videos: videos,
+      });
+    }
   }
 
   return results;
 }
 
 const getProgramacao = () => {
-  const date = new Date();
+  const now = new Date();
+  const date = new Date(now.getTime() + (-3 * 60 * 60 * 1000));
   const programaDefault = {
     id: 1,
     name: 'Assista ao vivo',
     startTime: date,
     endTime: date,
-    thumbnail: '',
+    thumbnail: 'https://s3.sa-east-1.amazonaws.com/tvaraguari.tv.br/public/capas/tv-araguari.png',
   };
   const weekday = date.getDay();
   const result = programacao.find((value) => value.weekday == weekday);
 
-  if (result && result?.items?.length > 0) {    
+  if (result && result?.items?.length > 0) {
     const programa = result.items.find((item) => {
       const hora1 = item.startTime.split(":");
       const hora2 = item.endTime.split(":");
-      const startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), hora1[0], hora1[1]);
-      const endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), hora2[0], hora2[1]);
+      const startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), +hora1[0], hora1[1]);
+      const endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), +hora2[0], hora2[1]);
       return startTime <= date && endTime >= date;
     });
     if (programa) return programa;
@@ -109,12 +112,8 @@ export const handler = async(event) => {
     result = prepareData(result.data);
 
     return {
-      statusCode: 200,
-      headers: {'Content-Type': 'application/json'},
-      body: {
-        programacao: getProgramacao(),
-        gravados: result,
-      },
+      programacao: getProgramacao(),
+      gravados: result,
     };
   } catch (error) {
     return {

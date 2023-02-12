@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, FlatList, TouchableOpacity, RefreshControl } from 'react-native';
-import { VStack, useTheme, HStack, Text, Center } from 'native-base';
+import { StyleSheet, FlatList, TouchableOpacity, RefreshControl, ImageBackground } from 'react-native';
+import { VStack, HStack, Text, Center } from 'native-base';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faChevronLeft, faPlayCircle, faRotate } from '@fortawesome/free-solid-svg-icons';
+import { faRotate } from '@fortawesome/free-solid-svg-icons';
 
 import Loading from '../../components/Loading';
 import { CardAoVivo } from './CardAoVivo';
 import { VideoCard } from './VideoCard';
+import { BtnYoutube } from './BtnYoutube';
 
-import { openWebsite, openFacebook, openInstagram } from '../../utils';
+// import background from '../../assets/images/bg.png';
+import background from '../../assets/images/bg.jpg';
+// import background from '../../assets/images/bg-azul.jpg';
+
 import { TV_URL } from '../../config';
+import { openYoutube } from '../../utils';
 import { getData, Programa, Gravacao, Video, APIResponse } from '../../services/APIService';
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: '#1B1B1B',
+    flex: 1,
   },
+  margin: {
+    margin: 25,
+  }
 });
 
 export function Home({ navigation }: any) {
@@ -102,7 +110,7 @@ export function Home({ navigation }: any) {
   function renderCardAoVivo() {
     if (!programa) {
       return (
-        <TouchableOpacity activeOpacity={0.8} onPress={() => openTV()}>
+        <TouchableOpacity activeOpacity={0.8} onPress={() => openTV()} style={styles.margin}>
           <CardAoVivo programa={{
             id: 1,
             name: 'Ao vivo',
@@ -113,9 +121,24 @@ export function Home({ navigation }: any) {
     }
 
     return (
-      <TouchableOpacity activeOpacity={0.8} onPress={() => openTV()}>
+      <TouchableOpacity activeOpacity={0.8} onPress={() => openTV()} style={styles.margin}>
         <CardAoVivo programa={programa}></CardAoVivo>
       </TouchableOpacity>
+    );
+  }
+
+  function renderHeader() {
+    return (
+      <>
+        {renderCardAoVivo()}
+        <TouchableOpacity 
+          activeOpacity={0.8} 
+          onPress={() => openYoutube()} 
+          style={{...styles.margin, marginTop: 0}}
+        >
+          <BtnYoutube></BtnYoutube>
+        </TouchableOpacity>
+      </>
     );
   }
 
@@ -160,11 +183,10 @@ export function Home({ navigation }: any) {
   function render() {
     return (
       <FlatList
-        style={styles.background}
         data={gravados}
         renderItem={({ item }) => renderItem(item)}
         keyExtractor={item => item.id.toString()}
-        ListHeaderComponent={renderCardAoVivo}
+        ListHeaderComponent={renderHeader}
         ListFooterComponent={() => {
           if (error) return renderError();
           return null;
@@ -181,5 +203,9 @@ export function Home({ navigation }: any) {
     );
   }
 
-  return !loaded ? renderLoading() : render();
+  return (
+    <ImageBackground source={background} style={styles.background}>
+      {!loaded ? renderLoading() : render()}
+    </ImageBackground>
+  );
 }
