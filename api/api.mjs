@@ -87,7 +87,8 @@ const getProgramacao = () => {
     name: 'Assista ao vivo',
     startTime: date,
     endTime: date,
-    thumbnail: 'https://s3.sa-east-1.amazonaws.com/tvaraguari.tv.br/public/capas/tv-araguari.png',
+    // thumbnail: 'https://s3.sa-east-1.amazonaws.com/tvaraguari.tv.br/public/capas/tv-araguari.png',
+    thumbnail: 'https://s3.sa-east-1.amazonaws.com/tvaraguari.tv.br/public/capas/tv-araguari-rede-tv.jpeg',
   };
   const weekday = date.getDay();
   const result = programacao.find((value) => value.weekday == weekday);
